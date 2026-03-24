@@ -4,6 +4,7 @@ import App from "./App";
 import { Amplify } from "aws-amplify";
 import awsConfig from "./aws-exports";
 
+
 Amplify.configure(awsConfig);
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
