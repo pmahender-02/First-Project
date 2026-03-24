@@ -3,14 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
+        - echo "Entering frontend folder"
+        - cd mock-interview-frontend
         - npm install
     build:
       commands:
+        - echo "Building Vite app"
         - npm run build
   artifacts:
-    baseDirectory: dist 
+    baseDirectory: mock-interview-frontend/dist
     files:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - mock-interview-frontend/node_modules/**/*

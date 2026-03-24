@@ -3,17 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Entering my-react-app"
-        - cd my-react-app
         - npm install
     build:
       commands:
-        - echo "Building React app"
         - npm run build
   artifacts:
-    baseDirectory: my-react-app/dist
+    baseDirectory: dist   # change to build if CRA, or .next if Next.js
     files:
       - '**/*'
   cache:
     paths:
-      - my-react-app/node_modules/**/*
+      - node_modules/**/*
