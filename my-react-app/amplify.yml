@@ -3,15 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd my-react-app
-        - npm install
+        - npm ci   # installs dependencies from package-lock.json
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: my-react-app/dist
+    baseDirectory: dist   # Vite outputs to dist/
     files:
       - '**/*'
   cache:
     paths:
-      - my-react-app/node_modules/**/*
+      - node_modules/**/*
