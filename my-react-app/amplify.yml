@@ -3,12 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Entering my-react-app"
         - cd my-react-app
         - npm install
     build:
       commands:
-        - echo "Building React app"
         - npm run build
   artifacts:
     baseDirectory: my-react-app/dist
