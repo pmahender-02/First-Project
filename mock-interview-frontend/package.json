@@ -1,10 +1,17 @@
-{
-  "name": "mock-interview-frontend",
-  "private": true,
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  }
-}
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd mock-interview-frontend
+        - npm install
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: mock-interview-frontend/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - mock-interview-frontend/node_modules/**/*
