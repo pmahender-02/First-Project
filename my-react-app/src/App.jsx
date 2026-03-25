@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Auth } from "aws-amplify";
+import { Auth } from "@aws-amplify/auth";
+
 
 export default function App() {
   const [username, setUsername] = useState("");
