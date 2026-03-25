@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Auth } from "@aws-amplify/auth";
-
+import { signUp, signIn, signOut } from "aws-amplify/auth";
 
 export default function App() {
   const [username, setUsername] = useState("");
@@ -10,10 +9,10 @@ export default function App() {
 
   const handleSignUp = async () => {
     try {
-      await Auth.signUp({
+      await signUp({
         username,
         password,
-        attributes: { email }
+        options: { userAttributes: { email } }
       });
       alert("Sign up successful! Check your email for confirmation.");
     } catch (err) {
@@ -23,7 +22,7 @@ export default function App() {
 
   const handleSignIn = async () => {
     try {
-      const loggedInUser = await Auth.signIn(username, password);
+      const loggedInUser = await signIn({ username, password });
       setUser(loggedInUser);
     } catch (err) {
       console.error(err);
@@ -31,7 +30,7 @@ export default function App() {
   };
 
   const handleSignOut = async () => {
-    await Auth.signOut();
+    await signOut();
     setUser(null);
   };
 
@@ -39,9 +38,9 @@ export default function App() {
     <div>
       {!user ? (
         <>
-          <input placeholder="Email" value={devopsuse58} onChange={e => setEmail(e.target.value)} />
-          <input placeholder="Username" value={devopsuse58} onChange={e => setUsername(e.target.value)} />
-          <input type="password" placeholder="Password" value={Mahender12} onChange={e => setPassword(e.target.value)} />
+          <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+          <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
           <button onClick={handleSignUp}>Sign Up</button>
           <button onClick={handleSignIn}>Sign In</button>
         </>
