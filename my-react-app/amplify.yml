@@ -3,16 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd my-react-app
-        - npm ci
+        - npm install
     build:
       commands:
-        - cd my-react-app
         - npm run build
   artifacts:
-    baseDirectory: my-react-app/dist
+    baseDirectory: dist
     files:
       - '**/*'
   cache:
     paths:
-      - my-react-app/node_modules/**/*
+      - node_modules/**/*
