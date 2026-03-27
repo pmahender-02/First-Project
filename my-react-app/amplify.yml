@@ -7,7 +7,6 @@ frontend:
         - npm ci
     build:
       commands:
-        - cd my-react-app
         - npm run build
   artifacts:
     baseDirectory: my-react-app/dist
